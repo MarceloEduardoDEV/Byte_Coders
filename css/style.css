@@ -41,6 +41,37 @@
     }
 }
 
+@keyframes neon {
+    0% {
+        filter: drop-shadow(blueviolet 0px 0px 5px);
+    }
+    25% {   
+        filter: drop-shadow(blueviolet 0px 0px 7px);
+    }
+    50% {
+        filter: drop-shadow(blueviolet 0px 0px 9px);
+    }    
+    75% {
+        filter: drop-shadow(blueviolet 0px 0px 7px);
+    }
+    100% {
+        filter: drop-shadow(blueviolet 0px 0px 5px);
+    }
+}
+
+@keyframes opacit {
+    0% {
+        opacity: 0.8;
+    }
+    50%{
+        opacity: 0.4;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+/*ACIMA ESTÃO AS ANIMAÇÕES USADAS*/
 
 *{
     background-attachment: fixed;
@@ -51,26 +82,30 @@
     
 }
 
-input {
-    position: absolute;
-    height: 30px;
+.botoes{/*ALINHAMENTO VERTICAL DOS BOTÕES*/
+    margin-top: 500px;
+    margin-bottom: 0px;
+}
+
+.botoes2{/*ALINHAMENTO HORIZONTAL*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input { /*CONFIG GERAL DOS BOTÕES*/
+    font-weight: 600;
+    font-size: 17px;
+    margin: 0px 5px;
+    height: 50px;
     border-radius: 30px;
-    text-align: center;
-    width: 150px;
+    width: 160px;
     border-color: blueviolet;
     color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-    left: 50%;
-    top: 15%;
-    transform: translate(-50%, -50%);
 }
 
-
-
-input:hover{
+input:hover{ /*APLICAÇÃO DAS ANIMAÇÕES*/
     animation: animação3 2s;
     transition-delay: 2s;
     transition-property:  box-shadow, background-color;
@@ -78,8 +113,9 @@ input:hover{
     box-shadow: blueviolet 0px 0px 25px;
 }
 
+/*FIM DOS BOTÕES*/
 
-::-webkit-scrollbar {
+::-webkit-scrollbar { /*ESCONDER A BARRA DE  ROLAGEM*/
     display: none;
   }
 
@@ -89,7 +125,7 @@ body{
     z-index: -1;
 }
 
-.fundo{
+.fundo{ /*FUNDO ANIMADO*/
     position: absolute;
     display: block;
     max-height: 600px;
@@ -98,62 +134,74 @@ body{
     width: 100vw;
     z-index: -1;
     box-shadow: black 0px 10px 20px;
-  -webkit-mask-image: linear-gradient(to top, transparent 22%, black 100%);
-
+    -webkit-mask-image: linear-gradient(to top, transparent 22%, black 100%);
 }
 
-header{
+/*CABEÇALHO*/
+
+header{ 
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-header > h1{
-    color: white;
-    text-align: center;
-    margin-top: 350px;
-    padding-bottom: 85px;
-    font-size: 50px;
-    font-family: 'principal', Arial, Helvetica, sans-serif;
-    font-weight: 700;
-}
-
-header > h1:hover {
-    animation-name: animação1;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-}
-
-h2{
-    position: absolute;
-    padding-top: 230px;
-}
-
-header > h2 > a {
-    padding: 0px 20px;
-    color: white;
-    font-family: 'emoji';
-    font-weight: 100;
-    font-size: 45px;
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-}
-
-a:hover{
-    -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: blueviolet;
-    color: blueviolet;
-    text-shadow: blueviolet 0px 0px 20px;
-}
-
-
- 
 .logo{
     position: absolute;
     margin: 100px 0px;
     left: 50%;
     transform: translate(-50%, 0%);
+    animation-duration: 5s;
+    animation-name: neon;
+    animation-iteration-count: infinite;
+}
+
+.icones > div{
+
+}
+
+.html > img{
+    position: absolute;
+    width: 50px;
+    display: inline-block;
+    margin-left: auto;
+}
+
+.html > img:hover{
+    animation: opacit 3s;
+    transition-delay: 2s;
+    transition-property:  filter, opacity;
+    filter: drop-shadow(orange 0px 0px 15px);
+    opacity: 0;
+}
+
+.css > img{
+    position: absolute;
+    width: 50px;
+    display: inline-block;
+    margin-left: 60px;
+}
+
+.css >img:hover{
+    animation: opacit 2s;
+    transition-delay: 2s;
+    transition-property:  filter, opacity;
+    filter: drop-shadow(blue 0px 0px 15px);
+    opacity: 0;  
+}
+
+.js >img {
+    position: absolute;
+    width: 50px;
+    display: inline-block;
+    margin-left: -60px;  
+}
+
+.js >img:hover{
+    animation: opacit 2s;
+    transition-delay: 2s;
+    transition-property:  filter, opacity;
+    filter: drop-shadow(yellow 0px 0px 15px);
+    opacity: 0;      
 }
 
 /*SECTION 2*/
