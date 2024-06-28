@@ -83,7 +83,7 @@
 }
 
 .botoes{/*ALINHAMENTO VERTICAL DOS BOTÕES*/
-    margin-top: 500px;
+    margin-top: 400px;
     margin-bottom: 0px;
 }
 
@@ -93,7 +93,7 @@
     align-items: center;
 }
 
-input { /*CONFIG GERAL DOS BOTÕES*/
+input.button { /*CONFIG GERAL DOS BOTÕES*/
     font-weight: 600;
     font-size: 17px;
     margin: 0px 5px;
@@ -105,7 +105,7 @@ input { /*CONFIG GERAL DOS BOTÕES*/
     background-color: rgb(0, 0, 0);
 }
 
-input:hover{ /*APLICAÇÃO DAS ANIMAÇÕES*/
+input.button:hover{ /*APLICAÇÃO DAS ANIMAÇÕES*/
     animation: animação3 2s;
     transition-delay: 2s;
     transition-property:  box-shadow, background-color;
@@ -134,7 +134,9 @@ body{
     width: 100vw;
     z-index: -1;
     box-shadow: black 0px 10px 20px;
-    -webkit-mask-image: linear-gradient(to top, transparent 22%, black 100%);
+    -webkit-mask-image: linear-gradient(to top, transparent 10%, black 100%);
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
 /*CABEÇALHO*/
@@ -155,20 +157,28 @@ header{
     animation-iteration-count: infinite;
 }
 
-.icones > div{
+.icones{
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    margin: 0px;
+    padding-left: 0px;
+    top: 230px;
+    left: 50%;
+    transform: translate(-50%, 0%);
 
 }
 
 .html > img{
     position: absolute;
-    width: 50px;
+    width: 40px;
     display: inline-block;
-    margin-left: auto;
+    margin-left: 55px
 }
 
 .html > img:hover{
-    animation: opacit 3s;
-    transition-delay: 2s;
+    animation: opacit 1s;
+    transition-delay: 1s;
     transition-property:  filter, opacity;
     filter: drop-shadow(orange 0px 0px 15px);
     opacity: 0;
@@ -176,14 +186,13 @@ header{
 
 .css > img{
     position: absolute;
-    width: 50px;
+    width: 40px;
     display: inline-block;
-    margin-left: 60px;
 }
 
 .css >img:hover{
-    animation: opacit 2s;
-    transition-delay: 2s;
+    animation: opacit 1s;
+    transition-delay: 1s;
     transition-property:  filter, opacity;
     filter: drop-shadow(blue 0px 0px 15px);
     opacity: 0;  
@@ -191,14 +200,14 @@ header{
 
 .js >img {
     position: absolute;
-    width: 50px;
-    display: inline-block;
-    margin-left: -60px;  
+    width: 40px;
+    display: inline-block; 
+    margin-left: 110px;
 }
 
 .js >img:hover{
-    animation: opacit 2s;
-    transition-delay: 2s;
+    animation: opacit 1s;
+    transition-delay: 1s;
     transition-property:  filter, opacity;
     filter: drop-shadow(yellow 0px 0px 15px);
     opacity: 0;      
@@ -208,14 +217,15 @@ header{
 
 main{
     position: relative;
-    z-index: -5;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(7, 2, 12);
-    margin-top: 680px;
-    padding: 200px 0px;
+    background-image: linear-gradient(black, rgb(7, 2, 12));
+    margin-top: 100px;
+    padding-bottom: 200px;
+    padding-top: 180px;
     display: block;
     color: white;
+    min-width: 500px;
     width: 100vw;
     animation: animação2 2s ease-in-out;
     animation-timeline: view();
@@ -223,7 +233,6 @@ main{
 }
 
 main > h3{
-    
     animation-duration: 2s;
     animation-name: animação2;
     animation-iteration-count: 1;
@@ -235,18 +244,96 @@ main > h3{
 }
 
 main > p {
-    
     font-size: 18px;
     display: inline-block;
     align-items: center;
     text-align: center;
-    width:800px;
+    max-width:800px;
 }
-
-
 
 .Paragrafo{
     margin-top: 90px;
+}
+
+section.slider{
+    margin: 0 auto;
+    width: 1000px;
+    padding: 0 !important;
+}
+
+.slider-content{
+    width: 400%;
+    height: auto;
+    display: flex;
+}
+
+.slide-box > img{
+    width: 1000px;
+}
+
+.slide-box{
+    position: relative;
+    height: auto;
+    transition: 1s;
+}
+
+.slider-content input{
+    display: none;
+}
+
+.nav-manual, .nav-auto{
+    position: absolute;
+    width: 1000px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-manual .manual-btn, .nav-auto div{
+    border: 1px solid blueviolet;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: .5s;
+}
+
+.nav-manual .manual-btn:not(:last-child), .nav-auto div:not(:last-child){
+    margin-right: 10px;
+}
+
+.nav-manual .manual-btn:hover{
+    background-color: blueviolet;
+}
+
+.nav-auto{
+    transition: 1s;
+}
+
+#radio1:checked ~ .primeiro{
+    margin-left: 0%;
+}
+#radio2:checked ~ .primeiro{
+    margin-left: -25%;
+}
+#radio3:checked ~ .primeiro{
+    margin-left: -50%;
+}
+
+.img-mobile{
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    .img-desktop{
+        display: none;
+    }
+    .img-mobile{
+        display: block;
+    }
+    .slide-box{
+        width: 900px;
+        text-align: center;
+    }
 }
 
 /*SECTION 3*/
@@ -255,7 +342,7 @@ main > p {
     margin: 0px 0px;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(12, 4, 20);
+    background-image: linear-gradient(rgb(7, 2, 12) ,rgb(12, 4, 20));
     animation-duration: 2s;
     animation-name: animação2;
     animation-iteration-count: 1;
@@ -265,67 +352,7 @@ main > p {
     margin-bottom: 20px;
 }
 
-.geral{
-    margin: 0px;
-    padding: 0px;
-    height: 300px;
-    display: inline-flex;
-    align-items: center;
-    
-}
 
-.foto{
-    background-color: blueviolet;
-    width: 850px;
-    height: 300px;
-    display: inline-flex;
-}
-
-
-.resumo{
-    background-color: blueviolet;
-    width: 300px;
-    height: 300px;
-    margin-left: 10px;
-    display: grid;
-    align-items: center;
-}
-
-.titulo{
-    font-size: 20px;
-    font-weight: bolder;
-    margin-bottom: 30px;
-
-
-}
-
-.caixadetexto{
-    margin: 0px 40px;
-}
-
-.caixadetexto > p {
-    font-weight: 100;
-}
-
-.prox {
-    position: absolute;
-    width: 30px;
-    right: 33%;
-}
-
-.volt{
-    position: absolute;
-    width: 30px;
-    left: 12%;
-}
-
-.passar{
-    background: white;
-    color: black;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-}
 
 /* SECTION 4 */
 
@@ -345,7 +372,7 @@ main > p {
 }
 
 .main3 > section > div > img{
-    border: solid blueviolet 5px;
+    border: solid blueviolet 3px;
 }
 
 .main3 > section {
